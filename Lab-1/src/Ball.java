@@ -35,7 +35,7 @@ public class Ball {
     }
 
     public void move() {
-        if (inHole) return; // Якщо кулька вже в лузі - не рухається
+        if (inHole) return;
 
         x += dx;
         y += dy;
@@ -45,7 +45,6 @@ public class Ball {
         if (y < 0) { y = 0; dy = -dy; }
         if (y + YSIZE >= this.canvas.getHeight()) { y = this.canvas.getHeight() - YSIZE; dy = -dy; }
 
-        // 🔴 Синхронізація, щоб уникнути подвійного видалення
         synchronized (this) {
             if (!inHole && (x < 60 && y < 60)) {
                 inHole = true;

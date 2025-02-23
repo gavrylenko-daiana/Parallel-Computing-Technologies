@@ -36,7 +36,7 @@ public class BounceFrame extends JFrame {
                 canvas.add(b);
 
                 BallThread thread = new BallThread(b);
-                thread.setName("BallThread-" + (++threadCounter)); // Гарантовано унікальне ім'я потоку
+                thread.setName("BallThread-" + (++threadCounter));
                 thread.start();
             }
         });

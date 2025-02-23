@@ -11,7 +11,7 @@ public class BallThread extends Thread {
             while (true) {
                 synchronized (b) {
                     if (b.isInHole()) {
-                        break; // Якщо кулька в лузі, завершуємо потік
+                        break;
                     }
                 }
                 b.move();
