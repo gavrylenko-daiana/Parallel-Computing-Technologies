@@ -1,3 +1,5 @@
+package second;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +16,7 @@ public class BounceFrame extends JFrame {
 
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
-        this.setTitle("Bounce program");
+        this.setTitle("second.Bounce program");
 
         this.canvas = new BallCanvas(this);
         Container content = this.getContentPane();
@@ -36,7 +38,7 @@ public class BounceFrame extends JFrame {
                 canvas.add(b);
 
                 BallThread thread = new BallThread(b);
-                thread.setName("BallThread-" + (++threadCounter));
+                thread.setName("second.BallThread-" + (++threadCounter));
                 thread.start();
             }
         });

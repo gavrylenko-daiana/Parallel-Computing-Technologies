@@ -1,3 +1,5 @@
+package second;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class BallCanvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.BLACK);
+        g2.setColor(Color.RED);
         g2.fillOval(25, 25, 50, 50); // Червоне коло (луза)
 
         for (Ball b : balls) {

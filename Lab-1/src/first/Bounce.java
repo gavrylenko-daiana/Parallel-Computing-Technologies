@@ -1,3 +1,5 @@
+package first;
+
 import javax.swing.JFrame;
 
 public class Bounce {

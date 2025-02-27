@@ -1,3 +1,5 @@
+package second;
+
 public class BallThread extends Thread {
     private Ball b;
 
