@@ -22,12 +22,12 @@ public class BounceFrame extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.lightGray);
 
-        JButton button2 = new JButton("2 кульок");
+        JButton button20 = new JButton("20 кульок");
         JButton button100 = new JButton("100 кульок");
         JButton button500 = new JButton("500 кульок");
         JButton buttonStop = new JButton("Stop");
 
-        button2.addActionListener(e -> createBalls(2));
+        button20.addActionListener(e -> createBalls(20));
         button100.addActionListener(e -> createBalls(100));
         button500.addActionListener(e -> createBalls(500));
 
@@ -36,7 +36,7 @@ public class BounceFrame extends JFrame {
             System.exit(0);
         });
 
-        buttonPanel.add(button2);
+        buttonPanel.add(button20);
         buttonPanel.add(button100);
         buttonPanel.add(button500);
         buttonPanel.add(buttonStop);
@@ -48,7 +48,7 @@ public class BounceFrame extends JFrame {
         int startX = rand.nextInt(this.canvas.getWidth() - 20);
         int startY = rand.nextInt(this.canvas.getHeight() - 20);
 
-        System.out.println("Створюємо " + number + " кульок з позиції (" + startX + ", " + startY + ")");
+        System.out.println("Створюємо " + number + " кульок");
 
         for (int i = 0; i < number; i++) {
             Ball b = new Ball(canvas, startX, startY, Color.BLUE);
