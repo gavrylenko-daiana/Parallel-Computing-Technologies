@@ -13,7 +13,7 @@ public class Main {
         String[] files = {
                 "sample-1MB.txt",
                 "sample-10MB.txt",
-                "sample-100MB.txt"
+                "sample-100MB.txt",
         };
 
         System.out.printf("%-20s %10s %10s %10s%n", "File", "T_seq (ms)", "T_par (ms)", "Speed-up");
@@ -32,7 +32,7 @@ public class Main {
                     .invoke(new WordLenTask(text, 0, text.length(), BUCKETS));
             long t4 = System.nanoTime();
 
-            assert seq.words() == par.words(); // sanity-check
+            assert seq.words() == par.words();
 
             double tSeqMs = (t2 - t1) / 1e6;
             double tParMs = (t4 - t3) / 1e6;

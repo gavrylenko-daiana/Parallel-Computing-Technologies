@@ -26,7 +26,7 @@ public class Main {
                     word.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
                 }
                 writer.write(word.toString());
-                writer.write(' '); // пробіл як розділювач
+                writer.write(' ');
                 size += len + 1;
             }
             System.out.println("Created: " + filename);

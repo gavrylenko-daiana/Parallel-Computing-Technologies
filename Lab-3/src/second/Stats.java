@@ -23,8 +23,4 @@ public record Stats(long words,
                 Math.max(max, o.max),
                 h);
     }
-
-    public double mean()     { return words == 0 ? 0 : (double) sumLen / words; }
-    public double variance() { return words == 0 ? 0 : (double) sumSq / words - Math.pow(mean(), 2); }
-    public double stdDev()   { return Math.sqrt(variance()); }
 }

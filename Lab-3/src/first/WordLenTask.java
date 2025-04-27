@@ -6,8 +6,8 @@ import java.util.concurrent.RecursiveTask;
 
 public class WordLenTask extends RecursiveTask<Stats> {
 
-    private static final int CHUNK = 100_000;           // ~100 кБ
-    private static final Pattern WORD = Pattern.compile("[\\p{L}\\p{Nd}]+");
+    private static final int CHUNK = 100_000; // ~100 кБ
+    private static final Pattern WORD = Pattern.compile("\\p{L}+");
 
     private final CharSequence text;
     private final int from, to;
@@ -28,19 +28,18 @@ public class WordLenTask extends RecursiveTask<Stats> {
         int mid = (from + to) >>> 1;
         WordLenTask left  = new WordLenTask(text, from, mid, buckets);
         WordLenTask right = new WordLenTask(text, mid,  to,  buckets);
-        left.fork();                       // асинхронно
-        Stats r = right.compute();         // поточним потоком
-        Stats l = left.join();             // дочекаймося left
+        left.fork();
+        Stats r = right.compute();
+        Stats l = left.join();
         return l.merge(r);
     }
 
-    /** Послідовний підрахунок у листовій підзадачі. */
     public Stats computeDirect() {
         Matcher m = WORD.matcher(text.subSequence(from, to));
         Stats s = Stats.empty(buckets);
         while (m.find()) {
             int len  = m.end() - m.start();
-            int idx  = Math.min(len, buckets - 1);      // останній кошик «> last»
+            int idx  = Math.min(len, buckets - 1);
             long[] h = s.hist();
             h[idx]++;
             s = new Stats(s.words() + 1,

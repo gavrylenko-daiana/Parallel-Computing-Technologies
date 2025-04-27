@@ -10,7 +10,7 @@ public class Main {
     private static final int BUCKETS = 31;
 
     public static void main(String[] args) throws IOException {
-        String text = Files.readString(Path.of("sample-100MB.txt"));
+        String text = Files.readString(Path.of("words_10002.txt"));
 
         Stats stats = ForkJoinPool.commonPool()
                 .invoke(new WordLenTask(text, 0, text.length(), BUCKETS));

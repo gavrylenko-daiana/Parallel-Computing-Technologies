@@ -7,7 +7,7 @@ import java.util.concurrent.RecursiveTask;
 public class WordLenTask extends RecursiveTask<Stats> {
 
     private static final int CHUNK = 100_000;
-    private static final Pattern WORD = Pattern.compile("[\\p{L}\\p{Nd}]+");
+    private static final Pattern WORD = Pattern.compile("\\p{L}+");
 
     private final CharSequence text;
     private final int from, to;
